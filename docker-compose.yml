@@ -1,0 +1,14 @@
+version: '3'
+
+services: 
+  app:
+    image: chatter-app 
+    ports:
+      - 8000:80
+  api:
+    image: chatter-server
+    ports:
+      - 3000:3000
+    volumes:
+      - ./data/prod.db:/app/prisma/prod.db
+      - ./data/static/:/app/static/
